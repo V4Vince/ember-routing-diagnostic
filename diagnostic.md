@@ -6,21 +6,22 @@ Record your responses inside the fenced code blocks below each question.
     and what are the main task(s) you perform inside an Ember Route?
 
     ```md
-    <!-- your response here -->
+    Router: maps URL and determines which route is loaded
+    Route: maps which Model gets loaded
     ```
 
 1.  What is the command to generate a route named `boston` nested under
     `campus`?
 
     ```md
-    <!-- your response here -->
+    ember g route campus/boston
     ```
 
 1.  Suppose you have a nested route at the URL `/campus/boston`. How would you
     use the `link-to` helper to generate an appropriate link?
 
     ```md
-    <!-- your response here -->
+    <a>{{#link-to "campus.boston"}}Link to Boston{{/link-to}}</a>
     ```
 
 1.  Explain **at least** two differences between the following two route
@@ -35,7 +36,10 @@ Record your responses inside the fenced code blocks below each question.
     ```
 
     ```md
-    <!-- your response here -->
+    In the first route definition, the 'product' route is nested inside the 'products' route.
+    In the second route definition, the 'product' route is defined outside the 'products' but is a subdirectory of the 'products'.
+
+    I'm not sure if it is functionally any different.
     ```
 
 1.  Suppose we have the following route definition:
@@ -48,11 +52,32 @@ Record your responses inside the fenced code blocks below each question.
     value `'123'` inside a Route?
 
     ```md
-    <!-- your response here -->
+    in the model, you have to pass [params.movie_id -1]
     ```
 
 1.  Inside a template, how do we reference data provided by a Route?
 
     ```md
-    <!-- your response here -->
+    if i wanted to access the titles, then:
+
+    {{#each model as |movie|}}
+      <p>{{movie.name}}</p>
+    {{/each}}
+
+    model: function(params){
+    return [
+      {
+        id: 1,
+        name: 'movie1',
+      },
+      {
+        id: 2,
+        name: 'movie2',
+      },
+      {
+        id: 3,
+        name: 'movie3',
+      },
+    ]
+  }
     ```
